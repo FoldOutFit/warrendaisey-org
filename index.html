@@ -59,6 +59,8 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;color:var(--navy);line-height:1.15}
 .kicker{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:14px}
 .hero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:800}
 .hero h1 em{font-style:normal;color:var(--gold2)}
+.hero h1 .typed{display:inline-block;color:var(--gold2);border-right:3px solid var(--gold2);padding-right:4px;min-height:1.15em;animation:blink 1s step-end infinite}
+@keyframes blink{50%{border-color:transparent}}
 .hero p.lead{margin-top:16px;color:#d5deea;font-size:1.05rem;max-width:540px}
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
 .nums div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px}
@@ -279,6 +281,7 @@ footer.site b{font-family:Fraunces,serif;color:var(--gold2);font-size:1.3rem;dis
  .brand .full{display:none}
  section{padding:52px 0}
  .hero{padding:40px 0 48px}
+.hero h1 .typed{min-height:2.25em}
  .nums b{font-size:1.3rem}
  .nums div{padding:11px}
  .stats,.ev,.duo,.slots{grid-template-columns:1fr}
@@ -334,7 +337,7 @@ footer.site b{font-family:Fraunces,serif;color:var(--gold2);font-size:1.3rem;dis
  <div class="wrap">
   <div>
    <span class="kicker">NISC 2026 · Bryant AI Revenue Challenge · Gartner Case</span>
-   <h1>AI made them <em>busier</em>.<br>We’ll make it <em>sell</em>.</h1>
+   <h1>Selling the future of<br><span class="typed" id="typed">AI-driven revenue.</span></h1>
    <p class="lead">Warren Daisey &amp; CU–Bloomsburg take on Gartner’s Aetheris Cloud Systems case. AI made 300 sellers 35% busier—and revenue barely moved. Our job: find out why, and fix it with AI.</p>
    <div class="nums">
     <div><b>+35%</b><small>Outbound activity</small></div>
@@ -707,6 +710,24 @@ function confetti(n){cv.width=innerWidth;cv.height=innerHeight;for(var i=0;i<n;i
 function cf(){cx2.clearRect(0,0,cv.width,cv.height);parts=parts.filter(function(p){return p.life<160&&p.y<cv.height+20});
  parts.forEach(function(p){p.life++;p.vy+=0.35;p.vx*=0.99;p.x+=p.vx;p.y+=p.vy;p.r+=0.15;cx2.save();cx2.translate(p.x,p.y);cx2.rotate(p.r);cx2.fillStyle=p.c;cx2.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cx2.restore()});
  if(parts.length)requestAnimationFrame(cf);else{running=false;cx2.clearRect(0,0,cv.width,cv.height)}}
+
+
+/* ---------- hero typing effect ---------- */
+(function(){
+ var el=$('typed');if(!el)return;
+ var phrases=['AI-driven revenue.','smarter selling.','Husky sales talent.','real buyer value.','the next deal.'];
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=phrases[0];return}
+ var wi=0,ci=phrases[0].length,del=true;
+ function step(){
+  var w=phrases[wi];
+  el.textContent=w.slice(0,ci)||'\u00a0';
+  if(!del&&ci<w.length){ci++;setTimeout(step,75)}
+  else if(!del){del=true;setTimeout(step,1500)}
+  else if(ci>0){ci--;setTimeout(step,38)}
+  else{del=false;wi=(wi+1)%phrases.length;setTimeout(step,280)}
+ }
+ setTimeout(step,1400);
+})();
 
 render();checkBadges(true);
 window.__NISC={MAX:MAX,xp:xp};
