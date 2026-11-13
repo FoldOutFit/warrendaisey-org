@@ -467,7 +467,7 @@ footer.site b{font-family:Fraunces,serif;color:var(--gold2);font-size:1.3rem;dis
   <div class="wc" id="wordcloud">
    <div>
     <span class="kicker" style="margin-bottom:6px">Live Word Cloud</span>
-    <h3>Sum up this site in one word <span class="chip" id="wordChip">+40 XP</span></h3>
+    <h3>Sum up the AI Revenue Challenge in one word <span class="chip" id="wordChip">+40 XP</span></h3>
     <p class="sub">Your word joins the spinning cloud instantly. Repeat words grow bigger.</p>
     <form class="wform" id="wForm" autocomplete="off" novalidate>
      <input id="wInput" type="text" maxlength="20" placeholder="One word…" aria-label="Your one word" enterkeyhint="send">
@@ -659,7 +659,7 @@ qa('.opt').forEach(function(o){o.onclick=function(){pollVoted=+o.dataset.v;lsSet
 renderPoll(false);
 
 /* ---------- word cloud ---------- */
-var WK='nisc-rc-words-v2',SEED={Bold:3,Clutch:2,Strategic:3,Huskies:4,Revenue:2,Sharp:2,Gamified:2,Insightful:1,Driven:2,Fresh:1,Winning:2,Smart:1};
+var WK='nisc-rc-words-v3',SEED={AI:4,Revenue:4,Strategy:3,Pipeline:3,Impact:2,Gartner:2,Discovery:2,Execution:2,Trust:2,Growth:2,Value:2,Clutch:1};
 var words=lsGet(WK,null)||Object.assign({},SEED),lastNew=null;
 var bc=null;try{bc=new BroadcastChannel('nisc-rc-cloud')}catch(e){}
 var cloud=$('cloud'),nodes=[],rx=0.35,ry=0,vx=0.0022,vy=0.0045,drag=null,R=150;
