@@ -59,7 +59,8 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;color:var(--navy);line-height:1.15}
 .kicker{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:14px}
 .hero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:800}
 .hero h1 em{font-style:normal;color:var(--gold2)}
-.hero h1 .typed{display:inline-block;color:var(--gold2);border-right:3px solid var(--gold2);padding-right:4px;min-height:1.15em;animation:blink 1s step-end infinite}
+.hero h1 .typed-wrap{display:block;min-height:1.2em}
+.hero h1 .typed{display:inline;color:var(--gold2);border-right:3px solid var(--gold2);padding-right:4px;animation:blink 1s step-end infinite}
 @keyframes blink{50%{border-color:transparent}}
 .hero p.lead{margin-top:16px;color:#d5deea;font-size:1.05rem;max-width:540px}
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
@@ -281,7 +282,7 @@ footer.site b{font-family:Fraunces,serif;color:var(--gold2);font-size:1.3rem;dis
  .brand .full{display:none}
  section{padding:52px 0}
  .hero{padding:40px 0 48px}
-.hero h1 .typed{min-height:2.25em}
+.hero h1 .typed-wrap{min-height:2.25em}
  .nums b{font-size:1.3rem}
  .nums div{padding:11px}
  .stats,.ev,.duo,.slots{grid-template-columns:1fr}
@@ -337,7 +338,7 @@ footer.site b{font-family:Fraunces,serif;color:var(--gold2);font-size:1.3rem;dis
  <div class="wrap">
   <div>
    <span class="kicker">NISC 2026 · Bryant AI Revenue Challenge · Gartner Case</span>
-   <h1>AI that doesn’t just automate—<br><span class="typed" id="typed">it closes revenue.</span></h1>
+   <h1>AI that actually<span class="typed-wrap"><span class="typed" id="typed">closes revenue.</span></span></h1>
    <p class="lead">Warren Daisey &amp; CU–Bloomsburg take on Gartner’s Aetheris Cloud Systems case. AI made 300 sellers 35% busier—and revenue barely moved. Our job: find out why, and fix it with AI.</p>
    <div class="nums">
     <div><b>+35%</b><small>Outbound activity</small></div>
@@ -715,7 +716,7 @@ function cf(){cx2.clearRect(0,0,cv.width,cv.height);parts=parts.filter(function(
 /* ---------- hero typing effect ---------- */
 (function(){
  var el=$('typed');if(!el)return;
- var phrases=['it closes revenue.','it sharpens discovery.','it turns signals into pipeline.','it frees reps to sell.','it wins real buyer trust.'];
+ var phrases=['closes revenue.','sharpens discovery.','turns AI busywork into pipeline.','frees reps to sell.','earns real buyer trust.'];
  if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=phrases[0];return}
  var wi=0,ci=phrases[0].length,del=true;
  function step(){
